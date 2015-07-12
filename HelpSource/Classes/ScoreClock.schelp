@@ -37,6 +37,10 @@ Even if you create several ScoreClocks, they all capture to a global score objec
 method:: score
 The current score object. You can add events manually to this if you want.
 
+method:: serverOptions
+An optional instance of link::Classes/ServerOptions::. If nil, an instance of ServerOptions will be created, using the default values.
+Note:: teletype::ScoreClock.serverOptions:: must be set strong::before:: teletype::ScoreClock.beginScore:: to take effect.::
+
 InstanceMethods::
 
 Examples::
