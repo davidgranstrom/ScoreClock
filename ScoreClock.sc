@@ -25,6 +25,7 @@ ScoreClock : Clock {
     classvar queue;
     classvar <score;
     classvar <default;
+    classvar <>serverOptions;
     classvar server,savedServer;
     
     var <>beats;
@@ -39,7 +40,8 @@ ScoreClock : Clock {
     }
     
     *beginScore {
-        server = Server.fromName(\ScoreDummy).serverRunning_(true);
+        serverOptions = serverOptions ?? { ServerOptions.new };
+        server = Server(\ScoreDummy, NetAddr.new("127.0.0.1", 57110), serverOptions).serverRunning_(true);
         savedServer = Server.default;
         Server.default = server;
         queue = PriorityQueue.new;
