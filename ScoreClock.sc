@@ -83,6 +83,7 @@ ScoreClock : Clock {
             time = queue.topPriority;
             #item, clock = queue.pop;
             clock.beats = time;
+            thisThread.beats = time;
 
             server.openBundle;
             thisThread.clock = clock;
