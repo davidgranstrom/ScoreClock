@@ -76,6 +76,10 @@ ScoreClock : Clock {
 	beats2secs {|inBeats|
 	    ^inBeats / tempo;
 	}
+
+    seconds {
+        ^thisThread.seconds;
+    }
     
     *makeScore {|maxTime=60,padding=0|
         var dt = 0, item, b, end = 0, time = 0, clock;
